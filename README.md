@@ -1,2 +1,3 @@
 # Modern-Data-Analytics
-A repo for mordern data analytics project 
+
+The repository for mordern data analytics project (applications part). Please visit the apps at [https://mdaproject.herokuapp.com/](https://mdaproject.herokuapp.com/)
