@@ -25,7 +25,6 @@ server = app.server
 dropdown = dcc.Dropdown(id = "id_country",
                         options = [
                             {"label": 'Belgium', 'value': 'Belgium'},
-                            {"label": 'Bulgaria', 'value': 'Bulgaria'},
                             {"label": 'France', 'value': 'France'},
                             {"label": 'Greece', 'value': 'Greece'},
                             {"label": 'Romania', 'value': 'Romania'},
@@ -135,9 +134,6 @@ app.layout = dbc.Container([
         dbc.Row([
             dbc.Col(html.Hr())
             ]),
-        dbc.Row([
-            dbc.Col(html.P('Write summary about the country level charts'))
-        ]),
         dbc.Row([
             dbc.Col(dropdown, md = 4)],
             justify = "center"),

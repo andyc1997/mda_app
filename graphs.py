@@ -18,13 +18,13 @@ class subset_helper():
         return self.data
 
 
-# overall visualizations for all 8 countries
+# overall visualizations for all 7 countries
 class overall_plots():
     def __init__(self, df_concat):
         self.data = df_concat
 
     def boxplot(self):
-        plt.figure(figsize=(8, 5), dpi=80)
+        plt.figure(figsize=(7, 5), dpi=80)
         ax = px.box(self.data,x="COUNTRY", y="TEMP_MEAN",color='COUNTRY',
                     title = "Distribution of daily maximum temperature across different countries")
         return ax
