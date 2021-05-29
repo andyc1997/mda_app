@@ -116,8 +116,8 @@ app.layout = dbc.Container([
         html.Div([html.P('Worldwide, it is highly acknowledged that the climate is warming.'
                          'According to the international disasters database (EM-DAT), there have been 25 '
                          'events of heatwaves from 2018 to 2020 in Europe which were considered as natural '
-                         'disasters and 5 of them were from Belgium. Based on the data from EM-DAT, we selected 8 countries '
-                         'in Europe which were affected the most by heat waves namely Belgium, Bulgaria, France, Greece, '
+                         'disasters and 5 of them were from Belgium. Based on the data from EM-DAT, we selected 7 countries '
+                         'in Europe which were affected the most by heat waves namely Belgium, France, Greece, '
                          'Romania, Russia, Spain and United Kingdom (U.K.).')]),
         dbc.Row([
             dbc.Col(dcc.Graph(id = "id_graph", figure = visuals.boxplot()), md = 20),
