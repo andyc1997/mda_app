@@ -30,10 +30,10 @@ class overall_plots():
         return ax
 
     def scatterplot(self):
-        df_group = self.data.groupby(['YEAR', 'COUNTRY']).sum()
+        df_group = self.data.groupby(['YEAR', 'COUNTRY']).mean()
         df_group = df_group.reset_index().round(2)
         fig = px.scatter(df_group, x="YEAR", y="HEAT_DAYS", color="COUNTRY", size="HEAT_DAYS",
-                         title="Heat days of countries for period 2009-2020")
+                         title="Heat days per month of countries for period 2009-2020")
         return fig
 
     def lineplot(self):
