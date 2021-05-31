@@ -188,9 +188,17 @@ app.layout = dbc.Container([
 @app.callback(
     Output('id_graph4', 'figure'),
     Output('id_graph5', 'figure'),
+    [Input('id_country', 'value')]
+)
+def update_chart(id_country):
+    fig1 = country_visuals.heatmap(id_country)
+    fig2 = country_visuals.lineplot(id_country)
+    
+    return fig1, fig2
+
+@app.callback(
     Output('id_graph6', 'figure'),
-    [Input('id_country', 'value'),
-     Input('id_temp_mean', 'value'),
+    [Input('id_temp_mean', 'value'),
      Input('id_temp_rng', 'value'),
      Input('id_ws50m_mean', 'value'),
      Input('id_prectot_mean', 'value'),
@@ -199,17 +207,13 @@ app.layout = dbc.Container([
      Input('id_region', 'value'),
      Input('id_cod', 'value')]
 )
-
-def update_chart(id_country, id_temp_mean, id_temp_rng, id_ws50m_mean, id_prectot_mean, 
+def update_predict( id_temp_mean, id_temp_rng, id_ws50m_mean, id_prectot_mean, 
                  id_rh2m_mean, id_heat_days, id_region, id_cod):
-    fig1 = country_visuals.heatmap(id_country)
-    fig2 = country_visuals.lineplot(id_country)
-    
     data_pred = {'TEMP_MEAN': id_temp_mean, 'TEMP_RNG': id_temp_rng, 'WS50M_MEAN': id_ws50m_mean, 
                  'PRECTOT_MEAN': id_prectot_mean, 'RH2M_MEAN': id_rh2m_mean, 'HEAT_DAYS': id_heat_days, 
                  'YEAR': 2018, 'MONTH': 8, 'REGION': id_region, 'COD': id_cod}
     fig3 = prediction_visuals.draw_table(data_pred)
-    return fig1, fig2, fig3
+    return fig3
 
 if __name__ == '__main__':
     app.run_server(debug = True)
