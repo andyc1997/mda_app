@@ -212,6 +212,7 @@ def update_predict( id_temp_mean, id_temp_rng, id_ws50m_mean, id_prectot_mean,
     data_pred = {'TEMP_MEAN': id_temp_mean, 'TEMP_RNG': id_temp_rng, 'WS50M_MEAN': id_ws50m_mean, 
                  'PRECTOT_MEAN': id_prectot_mean, 'RH2M_MEAN': id_rh2m_mean, 'HEAT_DAYS': id_heat_days, 
                  'YEAR': 2018, 'MONTH': 8, 'REGION': id_region, 'COD': id_cod}
+    
     fig3 = prediction_visuals.draw_table(data_pred)
     return fig3
 

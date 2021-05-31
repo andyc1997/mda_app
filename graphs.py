@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
+from itertools import product
 
 # considering only summer months from May to August
 class subset_helper():
@@ -71,15 +72,11 @@ class prediction_table():
         self.model = model
         
     def draw_table(self,data):
-        data_ages = pd.DataFrame()
         ages = ['0-24', '25-44', '45-64', '65-74', '75-84', '85+']
         genders = ['F', 'M']
-        # Insert possible ages
-        for age in ages:
-            data['AGE-GROUP'] = age
-            for gender in genders:
-                data['SEX'] = gender
-                data_ages = data_ages.append(data, ignore_index=True)
+        data_ages = pd.DataFrame(list(product(ages, genders)), columns=['AGE-GROUP', 'SEX'])
+        for key, val in data.items():
+            data_ages[key] = val
         # Reorder the features
         data_ages = data_ages[['REGION', 'MONTH', 'YEAR', 'AGE-GROUP', 'SEX', 'COD', 'TEMP_MEAN', 'TEMP_RNG', 
                              'WS50M_MEAN', 'PRECTOT_MEAN', 'RH2M_MEAN', 'HEAT_DAYS']]
